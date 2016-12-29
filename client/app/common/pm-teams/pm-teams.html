@@ -1,0 +1,28 @@
+<section ng-init="$ctrl.getAllTeams()" class='PmTeams'>
+  <pm-add-team></pm-add-team>
+  <div class="ui celled list">
+    <div class="ui red horizontal label PmTeams_teamsLabel" ng-if="$ctrl.teams.length">Teams</div>
+    <li ng-repeat="team in $ctrl.teams"
+        ng-click="$ctrl.setCurrentTeam(team)"
+        class="item PmTeam"
+        ng-class="{PmCurrentTeam: $ctrl.currentTeam.id===team.id}">
+      <div class="header">{{team.name}}</div>
+      <ul class="list" ng-if="team.members.length>0 && team.id===$ctrl.currentTeam.id">
+        <li ng-repeat="member in team.members track by member.id"
+            class="item">
+          <img src="./images/male.png" alt="male_image" class="ui avatar image" ng-if="$ctrl.isMale(member)"/>
+          <img src="./images/female.jpg" alt="female_image" class="ui avatar image" ng-if="!$ctrl.isMale(member)" />
+          <div class="content">
+            <div class="header"
+                 data-tooltip="{{member.grade}} {{member.job}}"
+                 data-position="right center">
+              {{member.name}}
+            </div>
+            <div class="description">{{member.job}}</div>
+          </div>
+          <i class="right floated large outline trash icon" ng-click="$ctrl.deleteMember(team, member.id)"></i>
+        </li>
+      </ul>
+    </li>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+.PmEmployeesFirst {
+  .PmTagManager {
+    margin-top: 25px;
+    .PmTag {
+      margin: 5px 8px 3px 0;
+      .PmTag_removeIcon {
+        padding-left: 10px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .PmTypeahead {
+    .PmDropdown {
+      border: 1px solid rgba(34,36,38,.15);
+      border-top: none;
+      border-radius: 6px;
+      .PmDropdown_item {
+        white-space: normal;
+        word-wrap: normal;
+        position: relative;
+        cursor: pointer;
+        display: block;
+        border: none;
+        height: auto;
+        text-align: left;
+        line-height: 1em;
+        color: rgba(0,0,0,.87);
+        padding: .78571429rem 1.14285714rem!important;
+        font-size: 1rem;
+        text-transform: none;
+        font-weight: 400;
+        box-shadow: none;
+        &:hover {
+          background: rgba(0,0,0,.05);
+          color: rgba(0,0,0,.95);
+          z-index: 13;
+        }
+      }
+    }
+  }
+}

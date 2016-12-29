@@ -1,0 +1,15 @@
+<div ng-click="$ctrl.handleAppClick($event)">
+  <div class='PmApp'>
+    <main class='ui grid'>
+      <section class='ten wide column'>
+        <pm-navbar></pm-navbar>
+        <div class='PmRouteContent' ui-view></div>
+      </section>
+      <div class='one wide column'></div>
+      <section class='five wide column'>
+        <pm-teams on-team-change="$ctrl.handleTeamChange(team)"></pm-teams>
+      </section>
+    </main>
+  </div>
+</div>
+

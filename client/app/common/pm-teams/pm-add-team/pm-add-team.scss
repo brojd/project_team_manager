@@ -1,0 +1,18 @@
+.PmAddTeam {
+  .PmAddTeam_hint {
+    position: absolute;
+    top: 0px;
+    animation: movingHint 0.8s infinite;
+    @keyframes movingHint {
+      0% {
+        top: 0;
+      }
+      50% {
+        top: 10px;
+      }
+      100% {
+        top: 0px;
+      }
+    }
+  }
+}

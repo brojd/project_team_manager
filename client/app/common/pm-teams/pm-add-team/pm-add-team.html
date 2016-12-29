@@ -1,0 +1,30 @@
+<div class="PmAddTeam">
+  <div class="PmAddTeam_hint" ng-if="form.nameInput.$pristine">
+    <div class="ui pointing below label">
+      Start by adding new team
+    </div>
+  </div>
+  <form class="ui fluid action input" name="form">
+    <input type="text"
+           ng-model="$ctrl.nameInput"
+           name="nameInput"
+           ng-pattern="/^[a-z A-Z0-9]+$/"
+           ng-focus="inputFocused=true"
+           ng-blur="inputFocused=false"
+           required>
+    <button class="ui teal right labeled icon button"
+            ng-click="$ctrl.addTeam($ctrl.nameInput)"
+            ng-disabled="!form.nameInput.$valid">
+      <i class="plus icon"></i>
+      Add
+    </button>
+  </form>
+  <div class="ui warning message"
+       ng-if="!form.nameInput.$valid && form.nameInput.$dirty && inputFocused">
+    <div class="header">
+      Form is not valid!
+    </div>
+    Name of the team should be at least one symbol long and can include only Latin characters and numbers
+  </div>
+</div>
+

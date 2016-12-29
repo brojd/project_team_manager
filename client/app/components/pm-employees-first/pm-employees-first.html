@@ -1,0 +1,42 @@
+<section class="PmEmployeesFirst ui grid">
+  <section class="PmTagManager twelve wide column">
+    <div class="ui segment center aligned" ng-if="$ctrl.members.length">
+      <div class="ui top attached label">Team members</div>
+      <span class="ui label PmTag" ng-repeat="member in $ctrl.members track by $index">
+        <img src="./images/male.png"
+             alt="male_image"
+             class="ui right spaced avatar image"
+             ng-if="$ctrl.isMale(member)"/>
+        <img src="./images/female.jpg"
+             alt="female_image"
+             class="ui right spaced avatar image"
+             ng-if="!$ctrl.isMale(member)" />
+        <span data-tooltip="{{member.grade}} {{member.job}}">
+          {{member.name}}
+        </span>
+        <i class="remove icon PmTag_removeIcon" ng-click="$ctrl.deleteMember(member.id)"></i>
+      </span>
+    </div>
+  </section>
+  <section class="PmTypeahead twelve wide column">
+    <form class="ui form">
+      <input type="text"
+             class="PmTypeahead_input"
+             ng-model="searchText"
+             ng-keydown="selected=true"
+             ng-focus="selected=true" />
+      <div ng-hide="!searchText.length || !selected || $ctrl.clickOutsideDropdown" class="PmDropdown">
+        <div ng-repeat="employee in $ctrl.allEmployees | filter:searchText | limitTo:15 track by $index" class="menu">
+          <div class="PmDropdown_item" ng-click="$ctrl.addMember(employee)" ng-focus="$ctrl.test($event)">{{employee.name}}</div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <div class="four wide column">
+    <button ng-click="$ctrl.syncData()"
+            class="ui right floated button"
+            ng-disabled="!$ctrl.members.length">
+      Refresh
+    </button>
+  </div>
+</section>

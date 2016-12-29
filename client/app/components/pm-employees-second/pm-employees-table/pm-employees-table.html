@@ -1,0 +1,74 @@
+<section class='PmEmployeesTable'>
+  <form class="ui form PmFilterForm">
+    <i class="search icon PmSearchIcon"></i>
+    <input type="text" ng-model="filterText" placeholder="Filter..." class="PmFilterInput" />
+  </form>
+  <table ng-init="$ctrl.fetchAllEmployees()" class="ui selectable celled table">
+    <thead>
+      <tr>
+        <th class='six wide PmEmployeesTable_th'
+            ng-click="$ctrl.sortBy('name')">
+          Name
+          <i class="caret down icon"
+             ng-class="{PmReverse: $ctrl.reverse}"
+             ng-show="$ctrl.propToSortBy==='name'"></i>
+        </th>
+        <th class='four wide PmEmployeesTable_th'
+            ng-click="$ctrl.sortBy('job')">
+          Job title
+          <i class="caret down icon"
+             ng-class="{PmReverse: $ctrl.reverse}"
+             ng-show="$ctrl.propToSortBy==='job'"></i>
+        </th>
+        <th class='two wide PmEmployeesTable_th'
+            ng-click="$ctrl.sortBy('age')">
+          Age
+          <i class="caret down icon"
+             ng-class="{PmReverse: $ctrl.reverse}"
+             ng-show="$ctrl.propToSortBy==='age'"></i>
+        </th>
+        <th class='three wide PmEmployeesTable_th'
+            ng-click="$ctrl.sortBy('grade')">
+          Grade
+          <i class="caret down icon"
+             ng-class="{PmReverse: $ctrl.reverse}"
+             ng-show="$ctrl.propToSortBy==='grade'"></i>
+        </th>
+        <th class="one wide center aligned">
+          Add
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr dir-paginate-start="employee in $ctrl.employees | orderBy:$ctrl.propToSortBy:$ctrl.reverse | filter:filterText | itemsPerPage:30"
+          class="PmEmployeesTable_tr">
+        <td ng-click="$ctrl.setCurrentEmployee(employee)">
+          <span data-tooltip="{{employee.grade}} {{employee.job}}">{{employee.name}}</span>
+        </td>
+        <td ng-click="$ctrl.setCurrentEmployee(employee)">{{employee.job}}</td>
+        <td ng-click="$ctrl.setCurrentEmployee(employee)">{{employee.age}}</td>
+        <td ng-click="$ctrl.setCurrentEmployee(employee)">{{employee.grade}}</td>
+        <td class="center aligned">
+          <i class="plus icon PmEmployeesTable_addIcon" ng-click="$ctrl.addEmployeeToTeam(employee)"></i>
+        </td>
+      </tr>
+      <tr dir-paginate-end
+          ng-if="employee.isCurrent"
+          class="PmReviewTextarea">
+        <td colspan=5>
+          <form class="ui form">
+          <textarea value="employee.review"
+                    ng-model="employee.review"
+                    placeholder="Edit employee's review"></textarea>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <dir-pagination-controls
+    template-url="dirPagination.tpl.html"
+    direction-links="true"
+    boundary-links="true"
+    max-size=3 >
+  </dir-pagination-controls>
+</section>

@@ -1,0 +1,47 @@
+.PmEmployeesTable {
+  margin: 0 auto;
+  padding: 30px 0;
+  .PmFilterForm {
+    width: 35%;
+    min-width: 150px;
+    .PmFilterInput {
+      padding-left: 30px !important;
+    }
+    .PmSearchIcon {
+      position: absolute;
+      top: 11px;
+      left: 10px;
+      color: #9c9c9c;
+    }
+  }
+  .PmReviewTextarea.ng-enter {
+    transition:0.3s linear all;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  .PmReviewTextarea.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: none;
+  }
+  .PmReviewTextarea.ng-leave {
+    transition:0.3s linear all;
+    opacity:1;
+  }
+  .PmReviewTextarea.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  .PmReverse {
+    transform: rotate(180deg);
+  }
+  .PmEmployeesTable_th:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .PmEmployeesTable_tr:hover {
+    cursor: pointer;
+  }
+  .PmEmployeesTable_addIcon:hover {
+    color: #00b5ad;
+  }
+}

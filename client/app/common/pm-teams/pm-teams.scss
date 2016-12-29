@@ -1,0 +1,16 @@
+@import '../common';
+
+.PmTeams {
+  margin-top: 40px;
+
+  .PmTeams_teamsLabel {
+    margin-bottom: 8px !important;
+  }
+  .PmCurrentTeam {
+    background: rgba(0, 113, 108, 0.08) !important;
+  }
+  .PmTeam:hover {
+    background: rgba(0, 0, 0, 0.07);
+    cursor: pointer;
+  }
+}
