@@ -19,7 +19,7 @@ You should see:
 
 ## Built With
 
-The app is created using Angular 1.5.0, ES201 with Babel, SemanticUI, PostCSS.
+The app is created using Angular 1.5.0, ES2015 with Babel, SemanticUI, PostCSS.
 
 ## Authors
 
