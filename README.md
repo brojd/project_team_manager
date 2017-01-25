@@ -8,7 +8,7 @@ App to manage project teams of developers
 To run the app you should:
 
 1. Run ```npm i```
-2. Run ```npm start```
+2. Run ```gulp serve```
 3. Open your browser on: ```http://localhost:3000/```.
 
 
