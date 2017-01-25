@@ -12,9 +12,9 @@ To run the app you should:
 3. Open your browser on: ```http://localhost:3000/```.
 
 
-You should see:
+## Demo
 
-![project team manager index](./readme-img.png)
+![project team manager demo](./Demo.gif)
 
 <br/><br/>
 
